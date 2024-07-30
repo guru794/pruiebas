@@ -1,0 +1,155 @@
+.us-official {
+  color: #fff;
+  font-size: 0.9em;
+  background: #142849;
+  padding: 2px 5px 2px 10px;
+  height: 20.38px;
+}
+
+.us-official .container {
+  background: url("/src/assets/flag.png") left 1px no-repeat;
+
+  padding-left: 32px;
+}
+
+/*LOGOS Y NAVBAR*/
+.navbar {
+  font-size: 1.125em;
+  background: #1c3764 url("/src/assets/banner.png") top center no-repeat;
+  background-size: cover;
+}
+
+.navbar .logo-row {
+  padding: 19px 0;
+}
+
+.navbar .logo-row .row {
+  display: flex;
+}
+
+.navbar .logo-row .row .logo-i94 {
+  border-right: 1px solid #8c9ab0;
+}
+
+.logo-left {
+  padding-right: 30px;
+}
+
+.logo-left:hover {
+  opacity: 0.8;
+}
+
+.logo-right {
+  padding: 0px 30px;
+}
+
+.logo-right:hover {
+  opacity: 0.8;
+}
+
+.navbar .navbar-row {
+  background: #2b5283;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  border-left: 2px solid #1c3764;
+  height: 39px;
+  display: flex;
+  align-items: center;
+
+}
+.navbar-item:last-child {
+  border-right: 2px solid #1c3764;
+}
+
+.navbar-item a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0px 23px;
+  display: grid;
+  align-items: center;
+}
+
+.navbar-item:hover a span {
+  border-bottom: 2px solid #cd2026;
+}
+
+.navbar-item.selected {
+  background-color: white;
+  
+}
+
+.navbar-item.selected a span {
+  border-bottom: 2px solid #cd2026;
+  color: #1c3764;
+}
+
+/* texto con fondo rojo*/
+.announcement-body {
+  display: flex;
+  flex-direction: column;
+  background-color: #8b0000;
+  padding: 2em 5em;
+  width: 100%;
+}
+
+.announcement-body a {
+  font-weight: 600;
+}
+
+/*HOME*/
+
+@media (max-width: 1024px) {
+  .home-wrapper {
+    background-color: #046b99;
+  }
+}
+@media (min-width: 1024px) {
+  .home-wrapper {
+    background: url("/src/assets/white-house.jpg") 0 -195px no-repeat;
+    background-size: cover;
+  }
+
+  @media (max-width: 1200px) {
+    .home-wrapper {
+      background-position: center 0;
+    }
+  }
+}
+
+.home-wrapper h2 {
+  color: #1c3764;
+  font-size: 1.4em;
+  margin: 0;
+  font-weight: 600;
+}
+
+.home-wrapper h3 {
+  color: #1c3764;
+  font-size: 2.1em;
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  font-weight: 300;
+  margin: 0 auto;
+  padding: 0;
+  
+  line-height: 0.925em;
+}
+
+footer {
+  color: #fff;
+  background: #1c3764 url("/src/assets/logo_line.png") center 15px no-repeat;
+  padding: 110px 0 25px 0;
+  font-size: 1.15em;
+}
