@@ -127,14 +127,14 @@ const Apply = () => {
                           </p>
                         </div>
                         <div>
-                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-sm py-2">
-                            <p>VIAJEROS</p>
-                            NÚMERO DE CONFIRMACIÓN
+                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-xs lg:text-sm py-2">
+                            <p className="w-7/12 ">VIAJEROS</p>
+                            <p className=" flex- text-right">NÚMERO DE CONFIRMACIÓN</p>
                           </div>
                           {
                             usuario?.map((user,idx) => (
-                              <div  className=" uppercase flex justify-between px-4 py-2">
-                              <p>
+                              <div  className=" uppercase flex justify-between px-4 py-2 text-xs lg:text-md">
+                              <p className="w-7/12">
                                 {user.nombre} {user.apellido}
                               </p>
                               <p>{user.codigo}</p>
@@ -143,7 +143,7 @@ const Apply = () => {
                           }
                         </div>
                         <div>
-                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-sm py-2">
+                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-xs lg:text-sm py-2">
                             <p>DETALLES DE LA CITA</p>
                          
                           </div>
@@ -160,7 +160,7 @@ const Apply = () => {
                               <p>{usuario[0].fecha}</p>
                             </div>
                             <div>
-                              <p className="text-xs text-gray-400">Hora</p>
+                              <p className="text-xs text-gray-400">Tiempo</p>
                               <p>{usuario[0].hora}</p>
                             </div>
                           </div>
