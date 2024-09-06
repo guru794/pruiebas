@@ -54,7 +54,7 @@ const MostRecent = () => {
             </p>
           </div>
         </div>
-        <div className="w-[400px] mx-auto text-start">
+        <div className="w-[400px] mx-auto my-8 text-start">
           <p className=" font-semibold text-3xl">El Estatus de Caso en Linea</p>
           <div className=" border-2 rounded-md p-4 flex flex-col gap-4">
             {activate ? (
