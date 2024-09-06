@@ -93,15 +93,15 @@ const CaptchaComponent = ({ aprovecaptcha, setAprovecaptcha }) => {
         height="50"
         style={{ border: "1px solid #ccc" }}
       ></canvas>
-      <div>
+      <div className="flex sm:gap-2 mt-2">
         <input
-          className="border-2 p-2 border-gray-500 mt-2"
+          className="border-2 p-2 border-gray-500 "
           type="text"
           value={userInput}
           onChange={handleInputChange}
           placeholder="Enter CAPTCHA"
         />
-        <button disabled={aprovecaptcha} className={`${!aprovecaptcha?"bg-blue-600":"bg-gray-400" } px-6 py-2 text-white ml-2`} onClick={validateCaptcha}>Verificar</button>
+        <button disabled={aprovecaptcha} className={`${!aprovecaptcha?"bg-blue-600":"bg-gray-400" } px-6 py-2 text-white `} onClick={validateCaptcha}>Verificar</button>
       </div>
       <button className=" bg-blue-600 px-6 py-2 text-white mt-2 w-full" onClick={refreshCaptcha}>Actualizar la imagen</button>
       
