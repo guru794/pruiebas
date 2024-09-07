@@ -13,21 +13,23 @@ const MostRecent = () => {
 
   const searchCaso = async () => {
     try {
-      const casoEncontrado = await buscarCasoPorNumero(textCaso);  // Espera que buscarCasoPorNumero termine
-      setAprovecaptcha(false)
+      const casoEncontrado = await buscarCasoPorNumero(textCaso); // Espera que buscarCasoPorNumero termine
       if (casoEncontrado) {
-        setActivate(false);  // Solo cambia a false si encontró el caso
-        
+        setActivate(false); // Solo cambia a false si encontró el caso
+        console.log(activate);
+        setAprovecaptcha(true);
       } else {
         setActivate(true);
+        setAprovecaptcha(false);
       }
     } catch (error) {
-      console.error('Error buscando el caso:', error);
-      setActivate(true);  // Si ocurre un error, activamos setActivate(true)
-      
+      console.error("Error buscando el caso:", error);
+      setActivate(true); // Si ocurre un error, activamos setActivate(true)
+      setAprovecaptcha(false)
+
     }
   };
-  
+
   return (
     <section>
       {" "}
@@ -114,15 +116,8 @@ const MostRecent = () => {
               </>
             ) : (
               <div className="flex flex-col gap-4">
-                <p className="font-bold text-xl">Caso Recibido</p>
-                <p>
-                  El {caso?.fechaCaso}, recibimos su Formulario I-796, Solicitud de
-                  Autorización de Empleo, número de recibo {caso?.numeroCaso}, y
-                  le enviamos la notificacion de recibo que describe cómo
-                  procesaremos su caso. Siga las instrucciones de la
-                  notificacion. Si tiene alguna pregunta, pongase en contacto
-                  con nosotros.
-                </p>
+                <p className="font-bold text-xl">Caso {caso?.estado}</p>
+                <p>{caso?.parrafo}</p>
                 <p>Provea otro número de recibo</p>
                 <input
                   onChange={handleChange}

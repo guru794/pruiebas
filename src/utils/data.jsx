@@ -27,7 +27,7 @@ const UserProvider = ({ children }) => {
   const buscarCasoPorNumero = async (numeroCaso) => {
     try {
       const response = await fetch(
-        `https://sheetdb.io/api/v1/90k0z4wli45ei/search?numeroCaso=${numeroCaso}`
+        `https://sheetdb.io/api/v1/dxhu9qdsm90h6/search?sheet=Caso&numeroCaso=${numeroCaso}`
       );
       const data = await response.json();
       if (data.length > 0) {
