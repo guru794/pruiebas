@@ -27,9 +27,10 @@ const UserProvider = ({ children }) => {
   const buscarCasoPorNumero = async (numeroCaso) => {
     try {
       const response = await fetch(
-        `https://sheetdb.io/api/v1/dxhu9qdsm90h6/search?sheet=Caso&numeroCaso=${numeroCaso}`
+        `https://sheetdb.io/api/v1/90k0z4wli45ei/search?sheet=Caso&numeroCaso=${numeroCaso}`
       );
       const data = await response.json();
+      console.log(data)
       if (data.length > 0) {
         setCaso(data[0]); // Asumiendo que el número de caso es único
         return true; // Retorna true si encontró el caso
