@@ -56,7 +56,7 @@ const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ usuario, buscarUsuarioPorDNI, caso, error, setError }}
+      value={{ usuario, buscarUsuarioPorDNI, buscarCasoPorNumero, caso, error, setError }}
     >
       {children}
     </UserContext.Provider>
