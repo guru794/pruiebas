@@ -1,13 +1,25 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import { UserContext } from "../../utils/data";
 import ModalApply from "../../components/ModalApply";
-import carImage from "../../assets/car.png";  
+import carImage from "../../assets/car.png";
+import { Steps } from "antd";
 import samplePassport from "../../assets/sample-passport.jpg";
+
 const Apply = () => {
-  const { usuario, buscarUsuarioPorDNI } = useContext(UserContext);
+  const { usuario, buscarUsuarioPorDNI, error, setError } =
+    useContext(UserContext);
   const [dni, setDni] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    if (usuario && usuario.Test) {
+      const step = Number(usuario.Test);
+      if (!isNaN(step)) {
+        setCurrentStep(step);
+      }
+    }
+  }, [usuario]);
 
   const handleActivate = () => {
     setShowModal(!showModal);
@@ -24,6 +36,11 @@ const Apply = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
+    if (!dni.trim()) {
+      setError("Ingrese el número de confirmación");
+      return;
+    }
+    setError("");
     buscarUsuarioPorDNI(dni);
   };
 
@@ -69,7 +86,7 @@ const Apply = () => {
             <div className=" w-full lg:w-7/12 ">
               <div className="border-solid border-8 border-[rgba(255, 255, 255, 0.5)] bg-white p-4 flex  flex-col justify-center items-center ">
                 <i
-                  class="fa fa-user-circle-o text-[100px] text-[#2b5283]"
+                  className="fa fa-user-circle-o text-[100px] text-[#2b5283]"
                   aria-hidden="true"
                 ></i>
 
@@ -87,82 +104,235 @@ const Apply = () => {
                       Buscar
                     </button>
                   </form>
+                  {error && <p className="text-red-500 mt-2">{error}</p>}
 
-                  {usuario && (
+                  {usuario && usuario[0] && (
                     <div className="mt-4 border">
                       <div className="bg-[#2b5283] text-center text-white text-xl py-2">
                         <p>Información Anticipada</p>
                       </div>
                       <div className="text-center px-4 py-2">
                         <div className="flex flex-col justify-center gap-2 text-green-600">
-                          <i
-                            class="fa fa-check-circle text-[70px] "
-                            aria-hidden="true"
-                          ></i>
-                          <p className="  font-medium text-2xl">
-                            CITA PROGRAMADA
-                          </p>
+                          {usuario[0].paso === "1" && (
+                            <>
+                              <div className="flex flex-col items-center justify-center">
+                                <svg
+                                  width="70px"
+                                  height="70px"
+                                  viewBox="0 0 64 64"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  aria-hidden="true"
+                                >
+                                  <circle
+                                    cx="32"
+                                    cy="32"
+                                    r="30"
+                                    stroke="#1c3764"
+                                    strokeWidth="4"
+                                    fill="none"
+                                  />
+                                  <path
+                                    d="M32 2 A30 30 0 0 1 62 32 L32 32 Z"
+                                    fill="#1c3764"
+                                  />
+                                </svg>
+                                <p className="font-medium text-2xl text-[#1c3764] mt-5">
+                                  PIDE UNA CITA
+                                </p>
+                              </div>
+                            </>
+                          )}
+                          {usuario[0].paso === "2" && (
+                            <>
+                              <div className="flex flex-col items-center justify-center">
+                                <svg
+                                  width="70px"
+                                  height="70px"
+                                  viewBox="0 0 100 100"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  aria-hidden="true"
+                                  style={{ transform: "rotate(-130deg)" }}
+                                >
+                                  <circle
+                                    cx="50"
+                                    cy="50"
+                                    r="50"
+                                    fill="#1c3764"
+                                  />
+
+                                  <circle
+                                    cx="50"
+                                    cy="50"
+                                    r="45"
+                                    fill="#1c3764"
+                                  />
+
+                                  <path
+                                    d="
+                                   M50,50 
+                                   L50,10 
+                                   A40,40 0 0,1 85,70 
+                                   Z
+                                 "
+                                    fill="white"
+                                  />
+                                </svg>
+                                <p className="font-medium text-2xl text-[#1c3764] mt-5">
+                                  ESPERA UNA CITA
+                                </p>
+                              </div>
+                            </>
+                          )}
+                          {usuario[0].paso === "3" && (
+                            <>
+                              <i
+                                className="fa fa-check-circle text-[70px] text-green-600"
+                                aria-hidden="true"
+                              ></i>
+                              <p className="font-medium text-2xl">
+                                CITA PROGRAMADA
+                              </p>
+                            </>
+                          )}
                         </div>
                       </div>
-                      <div className=" py-4 grid gap-2 ">
+                      <div className="py-4 grid gap-2">
                         <div className="grid gap-2 px-4">
-                          {" "}
-                          <div className="text-center text-[#1c3764] font-bold">
-                            <p>
-                              {"Su cita está programada: "} {usuario[0].puerto}
-                            </p>
-                            <p>
-                              {"el "} {usuario[0].fecha} {" a las "} {usuario[0].hora}
-                            </p>
-                          </div>
-                          <p>
-                            {
-                              "Su cita en un puerto de entrada se programó con éxito"
-                            }
-                          </p>
-                          <p>
-                            {
-                              "Guarde su(s) números de confirmación. Se envió un correo electrónico de confirmación a la dirección de correo electrónico que utilizó para iniciar sesión en CBP One "
-                            }
-                          </p>
+                          {usuario[0].paso === "1" && (
+                            <div className="text-center text-[#1c3764] font-bold">
+                              <p className="text-red-600 font-medium mb-3">
+                                Pide cita todos los días entre las 12:00 PM -05
+                                y 12:00 AM -05.
+                              </p>
+                              <p className="text-gray-600">
+                                Si solicita una cita hoy, podría recibir una
+                                cita dentro de los próximos 21 días.
+                              </p>
+                            </div>
+                          )}
+                          {usuario[0].paso === "2" && (
+                            <div className="text-center text-[#1c3764] font-bold">
+                              <p
+                                className=" mb-3 font-bold "
+                                style={{ fontSize: "17px" }}
+                              >
+                                Por favor, espere a que se anuncien las citas a
+                                las 11:00 AM CST.
+                              </p>
+                              <p className="text-gray-600">
+                                Si es seleccionado, recibirá una cita dentro de
+                                los próximos 21 días.
+                              </p>
+                            </div>
+                          )}
+                          {usuario[0].paso === "3" && (
+                            <div className="text-center text-[#1c3764] font-bold">
+                              <p>
+                                Su cita está programada: {usuario[0].puerto}
+                              </p>
+                              <p>
+                                {"el "} {usuario[0].fecha} {" a las "}{" "}
+                                {usuario[0].hora}
+                              </p>
+
+                              <p className="text-gray-600 mt-4 mb-4 text-left">
+                                Su cita en un puerto de entrada se programó con
+                                éxito.
+                              </p>
+                              <p className="text-gray-600 text-left">
+                                Guarde su(s) números de confirmación. Se envió
+                                un correo electrónico de confirmación a la
+                                dirección de correo electrónico que utilizó para
+                                iniciar sesión en CBP One.
+                              </p>
+                            </div>
+                          )}
                         </div>
                         <div>
-                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-xs lg:text-sm py-2">
-                            <p className="w-7/12 ">VIAJEROS</p>
-                            <p className=" flex- text-right">NÚMERO DE CONFIRMACIÓN</p>
+                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-xs lg:text-sm py-2 font-semibold tracking-wide">
+                            <p className="w-7/12">VIAJEROS</p>
+                            <p className="text-right tracking-wider whitespace-nowrap">
+                              NÚMERO DE CONFIRMACIÓN
+                            </p>
                           </div>
-                          {
-                            usuario?.map((user,idx) => (
-                              <div  className=" uppercase flex justify-between px-4 py-2 text-xs lg:text-md">
+
+                          {usuario.map((user, idx) => (
+                            <div
+                              key={user.codigo || idx}
+                              className="uppercase flex justify-between px-4 py-2 text-xs lg:text-md"
+                            >
                               <p className="w-7/12">
                                 {user.nombre} {user.apellido}
                               </p>
                               <p>{user.codigo}</p>
                             </div>
-                            ))
-                          }
+                          ))}
                         </div>
                         <div>
-                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-xs lg:text-sm py-2">
-                            <p>DETALLES DE LA CITA</p>
-                         
+                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-xs lg:text-sm py-2 font-semibold tracking-wide">
+                            <p>
+                              {usuario[0].paso === "3"
+                                ? "DETALLES DE LA CITA"
+                                : "PUERTO DE ENTRADA SOLICITADO"}
+                            </p>
                           </div>
                           <div className="px-4 grid gap-2">
-                            <div>
-                              {" "}
-                              <p className="text-xs text-gray-400">
-                                Puerto de entrada
-                              </p>
-                              <p>{usuario[0].puerto}</p>
+                            <div className="pt-3 ">
+                              {usuario[0].paso === "3" ? (
+                                <>
+                                  <p className="text-xs text-gray-400">
+                                    Puerto de entrada
+                                  </p>
+                                  <p>{usuario[0].puerto}</p>
+                                </>
+                              ) : (
+                                <p>{usuario[0].puerto}</p>
+                              )}
                             </div>
-                            <div>
-                              <p className="text-xs text-gray-400">Fecha</p>
-                              <p>{usuario[0].fecha}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-gray-400">Tiempo</p>
-                              <p>{usuario[0].hora}</p>
-                            </div>
+                            {usuario[0].paso === "3" && (
+                              <>
+                                <div>
+                                  <p className="text-xs text-gray-400">Fecha</p>
+                                  <p>{usuario[0].fecha}</p>
+                                </div>
+                                <div>
+                                  <p className="text-xs text-gray-400">
+                                    Tiempo
+                                  </p>
+                                  <p>{usuario[0].hora}</p>
+                                </div>
+                              </>
+                            )}
+                          </div>
+                        </div>
+
+                        <div>
+                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-xs lg:text-sm py-2 font-semibold tracking-wide">
+                            <p>PRÓXIMOS PASOS</p>
+                          </div>
+                          <div className="px-4 py-4">
+                            <Steps
+                              direction="vertical"
+                              size="small"
+                              items={[
+                                {
+                                  title: "Registrar viajeros",
+                                  status:
+                                    usuario[0].paso >= 1 ? "finish" : "wait",
+                                },
+                                {
+                                  title: "Solicite una cita",
+                                  status:
+                                    usuario[0].paso >= 2 ? "finish" : "wait",
+                                },
+                                {
+                                  title: "Aceptar y programar una cita",
+                                  status:
+                                    usuario[0].paso >= 3 ? "finish" : "wait",
+                                },
+                              ]}
+                              className="custom-steps"
+                            />
                           </div>
                         </div>
                       </div>
@@ -204,12 +374,7 @@ const Apply = () => {
                     }`}
                     aria-hidden="true"
                   ></i>
-                  <img
-                    className=""
-                    src={samplePassport}
-                    alt=""
-                    srcSet=""
-                  />
+                  <img className="" src={samplePassport} alt="" srcSet="" />
                   {showModal && <ModalApply closeModal={closeModal} />}
                 </div>
 
