@@ -5,48 +5,58 @@ const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [usuario, setUsuario] = useState(null);
   const [caso, setCaso] = useState(null);
+  const [error, setError] = useState("");
 
   const buscarUsuarioPorDNI = async (codigo) => {
     try {
       const response = await fetch(`https://sheetdb.io/api/v1/90k0z4wli45ei`);
       const data = await response.json();
+
       if (data.length > 0) {
         const user = data.filter((item) => item.codigo === codigo);
-        const grupoData = data.filter((item) => item.grupo === user[0].grupo);
 
-        setUsuario(grupoData);
+        if (user.length > 0) {
+          const grupoData = data.filter((item) => item.grupo === user[0].grupo);
+          setUsuario(grupoData);
+          setError("");
+        } else {
+          setUsuario(null);
+          setError("No se encontró informacion.");
+        }
       } else {
         setUsuario(null);
+        setError("No se encontró informacion.");
       }
     } catch (error) {
       console.error("Error fetching user:", error);
+      setError("Ocurrió un error al buscar el usuario.");
     }
   };
 
-  // Nueva función para buscar caso por número de caso
   const buscarCasoPorNumero = async (numeroCaso) => {
     try {
       const response = await fetch(
         `https://sheetdb.io/api/v1/90k0z4wli45ei/search?sheet=Caso&numeroCaso=${numeroCaso}`
       );
       const data = await response.json();
-      console.log(data)
+      console.log(data);
       if (data.length > 0) {
-        setCaso(data[0]); // Asumiendo que el número de caso es único
-        return true; // Retorna true si encontró el caso
+        setCaso(data[0]); 
+        return true;
       } else {
         setCaso(null);
         alert("Codigo de caso incorrecto.");
-        return false; // Retorna false si no encontró el caso
+        return false; 
       }
     } catch (error) {
       console.error("Error fetching case:", error);
-      return false; // Retorna false en caso de error
+      return false; 
     }
   };
+
   return (
     <UserContext.Provider
-      value={{ usuario, buscarUsuarioPorDNI, caso, buscarCasoPorNumero }}
+      value={{ usuario, buscarUsuarioPorDNI, caso, error, setError }}
     >
       {children}
     </UserContext.Provider>
