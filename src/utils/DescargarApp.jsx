@@ -4,7 +4,7 @@ const DescargarApp = () => {
   // Función que maneja la descarga de la APK
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/app.apk'; // Ruta a la APK en el servidor Netlify
+    link.href = '/app.apk'; // Ruta a la APK para el servidor Netlify
     link.download = 'CBP_One.apk'; // Nombre del archivo a descargar
     link.click(); // Simula el clic para descargar el archivo
   };
