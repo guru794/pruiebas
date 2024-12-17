@@ -84,14 +84,14 @@ const Apply = () => {
         <div className="container lg:w-full md:w-[790px] flex justify-center">
           <div className=" lg:flex justify-between gap-6 lg:px-44 py-8">
             <div className=" w-full lg:w-7/12 ">
-              <div className="border-solid border-8 border-[rgba(255, 255, 255, 0.5)] bg-white p-4 flex  flex-col justify-center items-center ">
+              <div className="sm:border-solid sm:border-8 border-[rgba(255, 255, 255, 0.5)] bg-white p-2 sm:p-4 flex  flex-col justify-center items-center ">
                 <i
                   className="fa fa-user-circle-o text-[100px] text-[#2b5283]"
                   aria-hidden="true"
                 ></i>
 
                 <h2 className="text-center">Ingrese número de confirmación</h2>
-                <div className="p-4">
+                <div className="sm:p-4">
                   <form onClick={handleSearch} className=" flex justify-center">
                     <input
                       type="text"
@@ -249,8 +249,8 @@ const Apply = () => {
                           )}
                         </div>
                         <div>
-                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-xs lg:text-sm py-2 font-semibold tracking-wide">
-                            <p className="w-7/12">VIAJEROS</p>
+                          <div className="w-full bg-gray-100 text-[#1c3764] flex justify-between px-2 text-[12px] lg:text-sm py-2 font-semibold tracking-wide">
+                            <p className="w-6/12 sm:w-7/12">VIAJEROS</p>
                             <p className="text-right tracking-wider whitespace-nowrap">
                               NÚMERO DE CONFIRMACIÓN
                             </p>
@@ -261,7 +261,7 @@ const Apply = () => {
                               key={user.codigo || idx}
                               className="uppercase flex justify-between px-4 py-2 text-xs lg:text-md"
                             >
-                              <p className="w-7/12">
+                              <p className="sm:w-7/12 w-6/12">
                                 {user.nombre} {user.apellido}
                               </p>
                               <p>{user.codigo}</p>
@@ -367,11 +367,10 @@ const Apply = () => {
                   onMouseLeave={() => setHover(false)}
                 >
                   <i
-                    className={`absolute fa fa-search right-0 text-blue-600 text-[20px] ${
-                      hover
-                        ? "text-white border-2 border-blue-600 p-1 bg-blue-600"
-                        : "border-2 border-blue-600 p-1 hover:text-white hover:bg-blue-600"
-                    }`}
+                    className={`absolute fa fa-search right-0 text-blue-600 text-[20px] ${hover
+                      ? "text-white border-2 border-blue-600 p-1 bg-blue-600"
+                      : "border-2 border-blue-600 p-1 hover:text-white hover:bg-blue-600"
+                      }`}
                     aria-hidden="true"
                   ></i>
                   <img className="" src={samplePassport} alt="" srcSet="" />
