@@ -4,6 +4,7 @@ import ModalApply from "../../components/ModalApply";
 import carImage from "../../assets/car.png";
 import { Steps } from "antd";
 import samplePassport from "../../assets/sample-passport.jpg";
+import DescargarApp from "../../utils/DescargarApp";
 
 const Apply = () => {
   const { usuario, buscarUsuarioPorDNI, error, setError } =
@@ -76,6 +77,8 @@ const Apply = () => {
               For air and sea travelers, you will still be issued an I-94 during
               the admission process at the port of entry.
             </p>
+            <DescargarApp />
+
           </div>
         </div>
       </div>
