@@ -144,7 +144,9 @@ const Newsroom = () => {
                 Actualizacion sobre el Formulario I-134A
               </div>
 
-              <p className="text-sm text-gray-600">Release Date: 02/03/2025</p>
+              <p className="text-sm text-gray-600">
+                Fecha de lanzamiento: 02/03/2025
+              </p>
 
               <p className="text-gray-800 leading-relaxed text-[14px]">
                 Debido a la Orden Ejecutiva del 20 de enero de 2025,{" "}
@@ -162,13 +164,13 @@ const Newsroom = () => {
 
               {/* Última revisión */}
               <p className="text-sm text-gray-600 font-light text-right">
-                Last Reviewed/Updated: 02/03/2025
+                Última revisión/actualizacion: 02/03/2025
               </p>
 
               {/* Pregunta sobre la página */}
               <div className="mt-8 p-4  border-gray-300 text-center">
                 <p className="text-gray-800 text-sm font-bold">
-                  Was this page helpful?
+                  ¿Fué útil esta página?
                 </p>
                 <div className="mt-4 flex justify-center items-center space-x-4">
                   <label className="flex items-center text-gray-800 text-sm font-bold">
