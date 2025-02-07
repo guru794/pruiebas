@@ -18,14 +18,19 @@ const NavLinks = () => {
           <span>Home</span>
         </Link>
       </li>
-      <li className={getLinkClass("/apply")}>
-        <Link to="/apply">
-          <span>Apply for New I-94</span>
+      <li className={getLinkClass("/forms")}>
+        <Link to="/forms">
+          <span>Forms</span>
         </Link>
       </li>
-      <li className={getLinkClass("/recent")}>
-        <Link to="/recent">
-          <span>Get Most Recent I-94</span>
+      <li className={getLinkClass("/news")}>
+        <Link to="/news">
+          <span>Newsroom</span>
+        </Link>
+      </li>
+      <li className={getLinkClass("/applyform")}>
+        <Link to="/applyform">
+          <span>Apply form</span>
         </Link>
       </li>
       <li className={getLinkClass("/history")}>

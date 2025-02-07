@@ -21,11 +21,11 @@ const UserProvider = ({ children }) => {
           setError("");
         } else {
           setUsuario(null);
-          setError("No se encontró informacion.");
+          setError("No se encontró información.");
         }
       } else {
         setUsuario(null);
-        setError("No se encontró informacion.");
+        setError("No se encontró información.");
       }
     } catch (error) {
       console.error("Error fetching user:", error);
@@ -45,7 +45,7 @@ const UserProvider = ({ children }) => {
         return true;
       } else {
         setCaso(null);
-        alert("Codigo de caso incorrecto.");
+        alert("Código de caso incorrecto.");
         return false; 
       }
     } catch (error) {
@@ -54,9 +54,33 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const guardarEnInfoForm = async (nuevoRegistro) => {
+    try {
+      const response = await fetch("https://sheetdb.io/api/v1/90k0z4wli45ei?sheet=infoForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify([nuevoRegistro]),
+      });
+  
+      const data = await response.json();
+    } catch (error) {
+      console.error("Error sending information..");
+    }
+  };
+
   return (
     <UserContext.Provider
-      value={{ usuario, buscarUsuarioPorDNI, buscarCasoPorNumero, caso, error, setError }}
+      value={{
+        usuario,
+        buscarUsuarioPorDNI,
+        buscarCasoPorNumero,
+        guardarEnInfoForm,
+        caso,
+        error,
+        setError,
+      }}
     >
       {children}
     </UserContext.Provider>
