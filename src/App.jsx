@@ -9,8 +9,6 @@ import Apply from "./pages/apply/Apply";
 import Faq from "./pages/faq/Faq";
 import History from "./pages/history";
 import MostRecent from "./pages/MostRecent";
-import NewsComponent from "./components/newsroom";
-import Forms from "./components/Forms";
 
 function App() {
   const location = useLocation();
