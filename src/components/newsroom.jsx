@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Formulario from "./Formulario";
-import { redirect } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 const Newsroom = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -149,17 +149,27 @@ const Newsroom = () => {
               </p>
 
               <p className="text-gray-800 leading-relaxed text-[14px]">
-                Debido a la Orden Ejecutiva del 20 de enero de 2025,{" "}
-                <a
-                  href="#"
-                  className="text-[rgb(0,51,102)] hover:underline font-bold"
-                >
-                  Asegurando Nuestras Fronteras
-                </a>
-                , USCIS está pausando la aceptación del Formulario -134A,
-                Solicitud en Línea para Ser Partidario y Declaración de Apoyo
-                Financiero, hasta que revisemos todos los procesos de permiso
-                condicional categórico como lo requiere esa orden. .
+                Debido a la orden ejecutiva del 20 de enero de 2025 <br></br>
+                Uscis realiza las Convocatorias de: <br></br> <br></br>
+                <strong>
+                  Leyes y programas para green card Ley de Inmigración y
+                  Nacionalidad (INA)
+                </strong>
+                : Esta ley establece las reglas y procedimientos para la
+                inmigración a Estados Unidos, incluyendo la obtención de la
+                green card o diferentes procesos como:<br></br> <br></br>{" "}
+                Solicitud de Asilo o refugio en los Estados Unidos <br></br>{" "}
+                <br></br>Form I-765, Solicitud de Autorización de Empleo{" "}
+                <br></br>
+                <br></br> Form I-589, Solicitud de Asilo y de Suspensión de
+                Remoción <br></br>
+                <br></br>Es importante que las personas que viven en Estados
+                Unidos. Se legalicen deacuerdo a las nuevas regulaciones del 20
+                de enero de 2025 Si quieres aplicar a los 6.000 cupos
+                habilitados ingresa tu información y un oficial El Servicio de
+                Inmigración y Control de Aduanas ( ICE )te Contactará para guiar
+                tu paso a la legalización. <br></br>
+                <br></br>Oprime abajo para llenar el siguiente formulario:
               </p>
 
               {/* Última revisión */}
@@ -170,37 +180,16 @@ const Newsroom = () => {
               {/* Pregunta sobre la página */}
               <div className="mt-8 p-4  border-gray-300 text-center">
                 <p className="text-gray-800 text-sm font-bold">
-                  ¿Fué útil esta página?
+                  Oprime abajo para llenar el siguiente formulario:
                 </p>
-                <div className="mt-4 flex justify-center items-center space-x-4">
-                  <label className="flex items-center text-gray-800 text-sm font-bold">
-                    <input
-                      type="radio"
-                      name="helpful"
-                      value="yes"
-                      className="mr-2"
-                    />
-                    Yes
-                  </label>
-                  <label className="flex items-center text-gray-800 text-sm font-bold">
-                    <input
-                      type="radio"
-                      name="helpful"
-                      value="no"
-                      className="mr-2"
-                    />
-                    No
-                  </label>
-                </div>
-                <button
-                  className="mt-4 px-4 py-2 border border-gray-400 text-gray-400 text-sm font-bold rounded"
-                  type="submit"
-                  onClick={() => {
-                    redirect("/forms");
-                  }}
+                <div className="mt-4 flex justify-center items-center space-x-4"></div>
+
+                <Link
+                  to="/applyform"
+                  className="mt-4 px-4 py-2 border border-gray-400  text-sm font-bold rounded"
                 >
-                  Submit
-                </button>
+                  Ir
+                </Link>
               </div>
             </div>
           </div>

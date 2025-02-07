@@ -8,6 +8,7 @@ const Home = () => {
     <>
       <Instructionpdf />
       <Newsroom />
+      <Forms />
 
       <div className="bg-image">
         <div className="container lg:w-full md:w-[790px] text-center ">
@@ -34,7 +35,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Forms />
     </>
   );
 };
