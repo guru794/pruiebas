@@ -2,7 +2,7 @@ import React from "react";
 import Instructionpdf from "./Instructionpdf";
 import PanelCards from "./PanelCards";
 import Newsroom from "../../components/newsroom";
-import Formulario from "../../components/Formulario";
+import Forms from "../../components/Forms";
 const Home = () => {
   return (
     <>
@@ -34,6 +34,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Forms />
     </>
   );
 };

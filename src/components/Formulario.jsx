@@ -44,7 +44,7 @@ function Formulario() {
         <h2 className="text-lg font-bold text-center pb-3">Form Apply</h2>
         <form
           onSubmit={handleSubmit}
-          className="text-sm grid md:grid-cols-2 md:gap-8"
+          className="text-sm md:grid-cols-2 md:gap-8"
         >
           <label className="block mb-2">
             Name:
