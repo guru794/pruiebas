@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../App.css";
-import logoI94 from '/src/assets/logo-i94.png';
-import logo from '/src/assets/logo.png';
+import logoI94 from "/src/assets/logo-i94.png";
+import logo from "/src/assets/logo.png";
 
 const NavLinks = () => {
   const location = useLocation();
@@ -18,19 +18,14 @@ const NavLinks = () => {
           <span>Home</span>
         </Link>
       </li>
-      <li className={getLinkClass("/forms")}>
-        <Link to="/forms">
-          <span>Forms</span>
+      <li className={getLinkClass("/apply")}>
+        <Link to="/apply">
+          <span>Apply for New I-94</span>
         </Link>
       </li>
-      <li className={getLinkClass("/news")}>
-        <Link to="/news">
-          <span>Newsroom</span>
-        </Link>
-      </li>
-      <li className={getLinkClass("/applyform")}>
-        <Link to="/applyform">
-          <span>Apply form</span>
+      <li className={getLinkClass("/recent")}>
+        <Link to="/recent">
+          <span>Get Most Recent I-94</span>
         </Link>
       </li>
       <li className={getLinkClass("/history")}>
@@ -73,22 +68,12 @@ const NavBar = () => {
         <ul className="row">
           <li className="logo-i94 ">
             <Link to="/home">
-              <img
-                className="logo-left"
-                src={logoI94}
-                alt=""
-                srcSet=""
-              />
+              <img className="logo-left" src={logoI94} alt="" srcSet="" />
             </Link>
           </li>
           <li>
             <Link to="/home">
-              <img
-                className="logo-right"
-                src={logo}
-                alt=""
-                srcSet=""
-              />
+              <img className="logo-right" src={logo} alt="" srcSet="" />
             </Link>
           </li>
         </ul>

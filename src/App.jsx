@@ -33,14 +33,15 @@ function App() {
             <Routes>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}></Route>
-              <Route path="/forms" element={<Forms />}></Route>
-              <Route path="/news" element={<NewsComponent />}></Route>
-              <Route path="/applyform" element={<Apply />}></Route>
+              <Route path="/apply" element={<Apply />}></Route>
               <Route path="/faq" element={<Faq />}></Route>
               <Route path="/recent" element={<MostRecent />}></Route>
               <Route path="/history" element={<History />}></Route>
             </Routes>
-            {location.pathname !== "/faq" && location.pathname !== "/news" && location.pathname !== "/applyform" &&location.pathname !== "/forms"  && (
+            {location.pathname !== "/faq" &&
+              location.pathname !== "/news" &&
+              location.pathname !== "/apply" &&
+              location.pathname !== "/forms" && (
                 <div className=" hidden lg:block bg-white text-center pt-6 pb-14">
                   <h3 className="">
                     Frequently Asked Questions

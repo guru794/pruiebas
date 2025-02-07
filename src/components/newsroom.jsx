@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Formulario from "./Formulario";
 
 const Newsroom = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ const Newsroom = () => {
         <div className="container lg:w-full md:w-[790px] flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] w-full">
             {/* Columna izquierda: Menú de navegación */}
-            <div className="bg-[rgb(243,243,243)] pl-8 text-left shadow-md h-full">
+            <div className="bg-[rgb(243,243,243)] p-2 md:pl-8 text-left shadow-md h-full">
               <h2 className="font-bold text-lg mb-6">Newsroom</h2>
               <ul className="space-y-4">
                 {/* Toggle Menu para "All News" */}
@@ -114,7 +115,7 @@ const Newsroom = () => {
             </div>
 
             {/* Columna derecha: Contenido */}
-            <div className="bg-white p-8 text-left space-y-5">
+            <div className="bg-white p-2 md:p-8 text-left space-y-5">
               <nav className="text-sm text-gray-600 mb-6">
                 <a href="#" className="text-blue-600 hover:underline">
                   Home
@@ -136,7 +137,10 @@ const Newsroom = () => {
                   Protected Status
                 </span>
               </nav>
-              <div className="text-[30px]" style={{ color: "rgb(68,68,68)", fontFamily: "sans-serif" }}>
+              <div
+                className="text-[30px]"
+                style={{ color: "rgb(68,68,68)", fontFamily: "sans-serif" }}
+              >
                 DHS Terminates the 2023 Designation of Venezuela for Temporary
                 Protected Status
               </div>
@@ -252,6 +256,7 @@ const Newsroom = () => {
                   Submit
                 </button>
               </div>
+              <Formulario />
             </div>
           </div>
         </div>

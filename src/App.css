@@ -64,7 +64,6 @@
   height: 39px;
   display: flex;
   align-items: center;
-
 }
 .navbar-item:last-child {
   border-right: 2px solid #1c3764;
@@ -88,7 +87,6 @@
 
 .navbar-item.selected {
   background-color: white;
-  
 }
 
 .navbar-item.selected a span {
@@ -117,13 +115,15 @@
   }
 }
 @media (min-width: 1024px) {
-  .home-wrapper {
-    background: url("/src/assets/white-house.jpg") 0 -195px no-repeat;
+  .bg-image {
+    /* background: url("/src/assets/white-house.jpg"); */
+    background-image: url("/src/assets/white-house.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
   }
 
   @media (max-width: 1200px) {
-    .home-wrapper {
+    .bg-image {
       background-position: center 0;
     }
   }
@@ -143,7 +143,7 @@
   font-weight: 300;
   margin: 0 auto;
   padding: 0;
-  
+
   line-height: 0.925em;
 }
 
@@ -153,8 +153,3 @@ footer {
   padding: 110px 0 25px 0;
   font-size: 1.15em;
 }
-
-
-
-
-
