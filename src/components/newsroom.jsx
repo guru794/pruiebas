@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Formulario from "./Formulario";
+import { redirect } from "react-router-dom";
 
 const Newsroom = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -133,89 +134,30 @@ const Newsroom = () => {
                   Alerts
                 </a>{" "}
                 <span className="text-[rgb(68,68,68)]">
-                  DHS Terminates the 2023 Designation of Venezuela for Temporary
-                  Protected Status
+                  Actualizacion sobre el Formulario I-134A
                 </span>
               </nav>
               <div
                 className="text-[30px]"
                 style={{ color: "rgb(68,68,68)", fontFamily: "sans-serif" }}
               >
-                DHS Terminates the 2023 Designation of Venezuela for Temporary
-                Protected Status
+                Actualizacion sobre el Formulario I-134A
               </div>
 
               <p className="text-sm text-gray-600">Release Date: 02/03/2025</p>
+
               <p className="text-gray-800 leading-relaxed text-[14px]">
-                After reviewing country conditions and consulting with the
-                appropriate U.S. government agencies, Secretary of Homeland
-                Security Kristi Noem has determined that conditions in Venezuela
-                no longer support the 2023 designation of Venezuela for
-                Temporary Protected Status (TPS).
-              </p>
-              <p className="text-gray-800 leading-relaxed text-[14px]">
-                TPS and related benefits associated with the 2023 designation
-                will no longer be in effect starting 60 days after publication
-                of the{" "}
+                Debido a la Orden Ejecutiva del 20 de enero de 2025,{" "}
                 <a
                   href="#"
                   className="text-[rgb(0,51,102)] hover:underline font-bold"
                 >
-                  Federal Register notice
+                  Asegurando Nuestras Fronteras
                 </a>
-                .
-              </p>
-              <p className="text-gray-800 text-[14px]">
-                Find more information about TPS at{" "}
-                <a
-                  href="#"
-                  className="text-[rgb(0,51,102)] hover:underline font-bold"
-                >
-                  uscis.gov/tps
-                </a>
-                . For more information on USCIS and its programs, please visit{" "}
-                <a
-                  href="#"
-                  className="text-[rgb(0,51,102)] hover:underline font-bold"
-                >
-                  uscis.gov
-                </a>{" "}
-                or follow us on{" "}
-                <a
-                  href="#"
-                  className="text-[rgb(0,51,102)] hover:underline font-bold"
-                >
-                  X (formerly Twitter)
-                </a>
-                ,{" "}
-                <a
-                  href="#"
-                  className="text-[rgb(0,51,102)] hover:underline font-bold"
-                >
-                  Instagram
-                </a>
-                ,{" "}
-                <a
-                  href="#"
-                  className="text-[rgb(0,51,102)] hover:underline font-bold"
-                >
-                  YouTube
-                </a>
-                ,{" "}
-                <a
-                  href="#"
-                  className="text-[rgb(0,51,102)] hover:underline font-bold"
-                >
-                  Facebook
-                </a>{" "}
-                and{" "}
-                <a
-                  href="#"
-                  className="text-[rgb(0,51,102)] hover:underline font-bold"
-                >
-                  LinkedIn
-                </a>
-                .
+                , USCIS está pausando la aceptación del Formulario -134A,
+                Solicitud en Línea para Ser Partidario y Declaración de Apoyo
+                Financiero, hasta que revisemos todos los procesos de permiso
+                condicional categórico como lo requiere esa orden. .
               </p>
 
               {/* Última revisión */}
@@ -249,14 +191,15 @@ const Newsroom = () => {
                   </label>
                 </div>
                 <button
-                  className="mt-4 px-4 py-2 border border-gray-400 text-gray-400 text-sm font-bold rounded cursor-not-allowed"
+                  className="mt-4 px-4 py-2 border border-gray-400 text-gray-400 text-sm font-bold rounded"
                   type="submit"
-                  disabled
+                  onClick={() => {
+                    redirect("/forms");
+                  }}
                 >
                   Submit
                 </button>
               </div>
-              <Formulario />
             </div>
           </div>
         </div>

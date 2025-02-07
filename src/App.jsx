@@ -9,6 +9,8 @@ import Apply from "./pages/apply/Apply";
 import Faq from "./pages/faq/Faq";
 import History from "./pages/history";
 import MostRecent from "./pages/MostRecent";
+import Forms from "./components/Forms";
+import Formulario from "./components/Formulario";
 
 function App() {
   const location = useLocation();
@@ -31,10 +33,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}></Route>
-              <Route path="/apply" element={<Apply />}></Route>
+              {/* <Route path="/apply" element={<Apply />}></Route> */}
               <Route path="/faq" element={<Faq />}></Route>
               <Route path="/recent" element={<MostRecent />}></Route>
               <Route path="/history" element={<History />}></Route>
+              <Route path="/forms" element={<Forms />}></Route>
+              <Route path="/applyform" element={<Formulario />}></Route>
             </Routes>
             {location.pathname !== "/faq" &&
               location.pathname !== "/news" &&
