@@ -36,13 +36,13 @@ const Apply = () => {
   };
 
   const handleSearch = (event) => {
-    // event.preventDefault();
-    // if (!dni.trim()) {
-    //   setError("Ingrese el número de confirmación");
-    //   return;
-    // }
-    // setError("");
-    // buscarUsuarioPorDNI(dni);
+    event.preventDefault();
+    if (!dni.trim()) {
+      setError("Ingrese el número de confirmación");
+      return;
+    }
+    setError("");
+    buscarUsuarioPorDNI(dni);
   };
 
   const ocultarDNIParcial = (dni) => {
@@ -77,13 +77,13 @@ const Apply = () => {
               For air and sea travelers, you will still be issued an I-94 during
               the admission process at the port of entry.
             </p>
-            <DescargarApp />
+            {/* <DescargarApp /> */}
           </div>
         </div>
       </div>
       <div className="bg-[#f2f2f2]">
         {" "}
-        <div className="container lg:w-full md:w-[790px] flex justify-center">
+        {/* <div className="container lg:w-full md:w-[790px] flex justify-center">
           <div className=" lg:flex justify-between gap-6 lg:px-44 py-8">
             <div className=" w-full lg:w-7/12 ">
               <div className="sm:border-solid sm:border-8 border-[rgba(255, 255, 255, 0.5)] bg-white p-2 sm:p-4 flex  flex-col justify-center items-center ">
@@ -388,7 +388,7 @@ const Apply = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
