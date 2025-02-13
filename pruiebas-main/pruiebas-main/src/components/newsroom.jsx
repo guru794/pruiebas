@@ -134,14 +134,14 @@ const Newsroom = () => {
                   Alerts
                 </a>{" "}
                 <span className="text-[rgb(68,68,68)]">
-                  Actualizacion sobre el Formulario I-134A
+                  Actualizacion importante
                 </span>
               </nav>
               <div
                 className="text-[30px]"
                 style={{ color: "rgb(68,68,68)", fontFamily: "sans-serif" }}
               >
-                Actualizacion sobre el Formulario I-134A
+                Actualizacion importante
               </div>
 
               <p className="text-sm text-gray-600">

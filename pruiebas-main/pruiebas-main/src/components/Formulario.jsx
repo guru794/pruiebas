@@ -17,7 +17,7 @@ function Formulario() {
 
     if (name === "tieneAbogado" && value === "No") {
       alert(
-        "If the answer is no, USCIS will assign one to represent you in your legalization process."
+        "USCIS le asignará uno para que lo represente en su proceso de legalización."
       );
     }
   };
@@ -26,7 +26,7 @@ function Formulario() {
     e.preventDefault();
     await guardarEnInfoForm(formData);
     alert(
-      "Your application has been successfully submitted. An advisor will contact you"
+      "Su solicitud ha sido enviada exitosamente. Un asesor se pondrá en contacto contigo"
     );
     setFormData({
       Nombre: "",
@@ -41,13 +41,13 @@ function Formulario() {
   return (
     <section className="container mx-auto md:pt-8 md:px-4 flex justify-center">
       <div className="bg-white px-4 pb-4 shadow-md rounded-lg w-full">
-        <h2 className="text-lg font-bold text-center pb-3">Form Apply</h2>
+        <h2 className="text-lg font-bold text-center pb-3">Formulario Aplicar</h2>
         <form
           onSubmit={handleSubmit}
           className="text-sm md:grid-cols-2 md:gap-8"
         >
           <label className="block mb-2">
-            Name:
+            Nombre:
             <input
               type="text"
               name="Nombre"
@@ -58,7 +58,7 @@ function Formulario() {
             />
           </label>
           <label className="block mb-2">
-            Nationality:
+            Nacionalidad:
             <input
               type="text"
               name="Nacionalidad"
@@ -69,7 +69,7 @@ function Formulario() {
             />
           </label>
           <label className="block mb-2">
-            State:
+            Estado:
             <input
               type="text"
               name="Estado"
@@ -80,7 +80,7 @@ function Formulario() {
             />
           </label>
           <label className="block mb-2">
-            Phone:
+            Numero:
             <input
               type="text"
               name="Telefono"
@@ -102,14 +102,14 @@ function Formulario() {
             />
           </label>
           <label className="block mb-3">
-            Do you have a lawyer?
+          Tienes un abogado?
             <select
               name="tieneAbogado"
               value={formData.tieneAbogado}
               onChange={handleChange}
               className="border p-1 w-full"
             >
-              <option value="Sí">Yes</option>
+              <option value="Sí">si</option>
               <option value="No">No</option>
             </select>
           </label>
@@ -119,10 +119,10 @@ function Formulario() {
               type="submit"
               className="bg-blue-600 text-white px-3 py-1 rounded w-full md:py-4 md:w-80"
             >
-              Submit
+              Enviar
             </button>
             <p className="text-xs text-gray-500 mt-2 text-center">
-              Avoid deportations or irregularities in your immigration status.
+            Evite deportaciones o irregularidades en su estatus migratorio.
             </p>
           </div>
         </form>
