@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
-import doc from "../assets/doc.png";
-import CaptchaComponent from "../components/CaptchaComponent";
-import { UserContext } from "../utils/data";
-const MostRecent = () => {
+import doc from "../../assets/doc.png";
+
+import { UserContext } from "../../utils/data";
+import CaptchaComponent from "../../components/CaptchaComponent";
+const CaseStatus = () => {
   const [aprovecaptcha, setAprovecaptcha] = useState(false);
   const [activate, setActivate] = useState(true);
   const [textCaso, setTextCaso] = useState("");
@@ -25,8 +26,7 @@ const MostRecent = () => {
     } catch (error) {
       console.error("Error buscando el caso:", error);
       setActivate(true); // Si ocurre un error, activamos setActivate(true)
-      setAprovecaptcha(false)
-
+      setAprovecaptcha(false);
     }
   };
 
@@ -37,7 +37,7 @@ const MostRecent = () => {
         <div className="container lg:w-full md:w-[790px] flex justify-center">
           <div className="w-[600px]">
             <h1 className="text-[#1c3764] text-3xl font-light text-center ">
-              Get Most Recent I-94
+              Get your Case Status I-94
             </h1>
 
             <span className="  my-[18px] mb-[20px] border-b border-[#1c3764] text-center relative flex justify-center items-center">
@@ -46,14 +46,6 @@ const MostRecent = () => {
                 className={`fa fa-comments-o  text-[18px] font-bold t  px-2`}
               ></i>
             </span>
-
-            <p className=" text-[#1c3764] italic">
-              Get your most recent I-94 form to prove your legal visitor status
-              in the United States (Available going back to 1983 for most
-              classes of admission, (or parole), and indefinitely for certain
-              classes, such as diplomats and those admitted under the Compacts
-              of Free Association.)
-            </p>
           </div>
         </div>
         <div className="w-[300px] sm:w-[400px] mx-auto my-8 text-start">
@@ -144,4 +136,4 @@ const MostRecent = () => {
   );
 };
 
-export default MostRecent;
+export default CaseStatus;

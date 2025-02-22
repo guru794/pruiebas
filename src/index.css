@@ -3,35 +3,33 @@
 @tailwind utilities;
 
 * {
-padding: 0;
-margin: 0;
-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-
 body {
-  font-family: "Open Sans", "Helvetica Neue", Tahoma, Arial, sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 13px;
   line-height: 1.4;
   color: #333;
 }
-
 
 /* Estilos para los Steps */
 .custom-steps .ant-steps-item-finish .ant-steps-item-icon,
 .custom-steps .ant-steps-item-process .ant-steps-item-icon {
   background-color: #16a34a;
   border-color: #16a34a;
-  color: #FFFFFF !important;
-  width: 24px; 
-  height: 24px; 
-  font-size: 16px; 
+  color: #ffffff !important;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
 }
 
 .custom-steps .ant-steps-item-finish .ant-steps-icon {
-  color: #FFFFFF !important;
-  font-weight: bold; 
-  font-size: 16px; 
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .custom-steps .ant-steps-item-title {
@@ -63,4 +61,3 @@ body {
 .custom-steps .ant-steps-vertical .ant-steps-item {
   padding: 8px 0;
 }
-

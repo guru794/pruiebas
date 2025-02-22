@@ -8,13 +8,13 @@ import Home from "./pages/home/Home";
 import Apply from "./pages/apply/Apply";
 import Faq from "./pages/faq/Faq";
 import History from "./pages/history";
-import MostRecent from "./pages/MostRecent";
 import Forms from "./components/Forms";
 import Formulario from "./components/Formulario";
+import CaseStatus from "./pages/casestatus/CaseStatus";
+import MostRecent from "./pages/mostRecent/MostRecent";
 
 function App() {
   const location = useLocation();
-
   return (
     <>
       <header className="">
@@ -36,6 +36,7 @@ function App() {
               {/* <Route path="/apply" element={<Apply />}></Route> */}
               <Route path="/faq" element={<Faq />}></Route>
               <Route path="/recent" element={<MostRecent />}></Route>
+              <Route path="/casestatus" element={<CaseStatus />}></Route>
               <Route path="/history" element={<History />}></Route>
               <Route path="/forms" element={<Forms />}></Route>
               <Route path="/applyform" element={<Formulario />}></Route>

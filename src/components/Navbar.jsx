@@ -38,6 +38,11 @@ const NavLinks = () => {
           <span>Get Most Recent I-94</span>
         </Link>
       </li>
+      <li className={getLinkClass("/casestatus")}>
+        <Link to="/casestatus">
+          <span>Case Status</span>
+        </Link>
+      </li>
       <li className={getLinkClass("/history")}>
         <Link to="/history">
           <span>View Travel History</span>
