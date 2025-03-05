@@ -57,7 +57,7 @@ function Formulario() {
         </h2>
         <form
           onSubmit={handleSubmit}
-          className="text-sm grid grid-cols-1 md:grid-cols-2 md:gap-8"
+          className="text-sm grid grid-cols-1 lg:grid-cols-2 md:gap-8"
         >
           <label className="block mb-2">
             Nombre y Apellido:
