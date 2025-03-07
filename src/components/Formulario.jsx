@@ -192,7 +192,7 @@ function Formulario() {
             </>
           )}
 
-          <div className="col-span-2 flex flex-col items-center justify-center">
+          <div className="md:col-span-2 flex flex-col items-center justify-center">
             <button
               type="submit"
               className="bg-blue-600 text-white px-3 py-1 rounded w-full md:py-4 md:w-80"
