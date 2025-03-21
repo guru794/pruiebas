@@ -21,6 +21,10 @@ function Formulario() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
+
+
+    
+
     if (name === "tieneAbogado" && value === "No") {
       alert(
         "USCIS le asignará uno para que lo represente en su proceso de legalización."
@@ -30,6 +34,12 @@ function Formulario() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+      if (!/^\d*$/.test(formData.Telefono)) {
+        alert("Solo se permiten números en el campo Teléfono.");
+        return;
+      }
+    
     await guardarEnInfoForm(formData);
     alert(
       "Su solicitud ha sido enviada exitosamente. Un asesor se pondrá en contacto contigo."
@@ -57,10 +67,10 @@ function Formulario() {
         </h2>
         <form
           onSubmit={handleSubmit}
-          className="text-sm grid grid-cols-1 lg:grid-cols-2 md:gap-8"
+          className="text-sm grid grid-col-1 md:gap-8"
         >
           <label className="block mb-2">
-            Nombre y Apellido:
+            <p> Nombre y Apellido:</p>
             <input
               type="text"
               name="Nombre"
@@ -71,7 +81,7 @@ function Formulario() {
             />
           </label>
           <label className="block mb-2">
-            Nacionalidad:
+            <p>Nacionalidad:</p>
             <input
               type="text"
               name="Nacionalidad"
